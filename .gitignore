@@ -5,3 +5,4 @@ app/build.gradle
 app/gradlew
 app/gradlew.bat
 app/settings.gradle
+app/build
