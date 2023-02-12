@@ -8,7 +8,7 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (int i = 0; i < 3; i++) {
             int number = (int) (Math.random() * 100);
-            String correctAnswer = "";
+            String correctAnswer;
             if (number % 2 == 0) {
                 correctAnswer = "yes";
             } else {
@@ -19,7 +19,7 @@ public class Even {
             String answer = console.next();
             if (!answer.equals(correctAnswer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again," + App.playerName);
+                System.out.println("Let's try again, " + App.playerName);
                 return;
             } else {
                 System.out.println("Correct!");
