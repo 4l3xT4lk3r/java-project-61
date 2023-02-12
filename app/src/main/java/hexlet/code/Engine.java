@@ -11,14 +11,14 @@ public class Engine {
         System.out.println("\nWelcome to the Brain Games!");
         Cli.greeting(console);
         switch (pick) {
-            case 1:
-                return;
             case 2:
-                System.out.println(Even.gameDescription);
+                System.out.println(Even.GAME_DESCRIPTION);
                 break;
             case 3:
-                System.out.println(Calc.gameDescription);
+                System.out.println(Calc.GAME_DESCRIPTION);
                 break;
+            default:
+                return;
         }
         boolean result = false;
         for (int i = 0; i < 3; i++) {

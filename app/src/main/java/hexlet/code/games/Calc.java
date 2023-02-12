@@ -4,7 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
-    public static final String gameDescription = "What is the result of the expression?";
+    public static final String GAME_DESCRIPTION = "What is the result of the expression?";
+
     public static boolean game(Scanner console) {
         int a = (int) (Math.random() * 100);
         int b = (int) (Math.random() * 100);

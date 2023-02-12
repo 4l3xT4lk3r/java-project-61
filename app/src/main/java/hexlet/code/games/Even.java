@@ -3,7 +3,8 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Even {
-    public static final String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     public static boolean game(Scanner console) {
         int number = (int) (Math.random() * 100);
         String correctAnswer;

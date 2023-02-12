@@ -19,7 +19,7 @@ public class App {
             System.out.println("\nWrong pick!");
             return;
         }
-        if ( pick >= 1 && pick <= 6) {
+        if (pick >= 1 && pick <= 6) {
             Engine.runGame(pick);
         } else if (pick != 0) {
             System.out.println("\nWrong pick!");
