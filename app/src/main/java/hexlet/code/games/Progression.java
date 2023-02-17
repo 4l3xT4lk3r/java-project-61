@@ -1,47 +1,44 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-public class Progression {
-    public static final String GAME_DESCRIPTION = "What number is missing in the progression?";
+public class Progression implements Playable {
+    public final String gameDescription = "What number is missing in the progression?";
+    private String question;
+    private String answer;
 
-    public static boolean game(Scanner console) {
-        int[] progressionLength = {5, 6, 7, 8, 9, 10};
-        int length = progressionLength[new Random().nextInt(progressionLength.length)];
+    @Override
+    public String getGameDescription() {
+        return gameDescription;
+    }
 
-        int startNumber = new Random().nextInt(100);
-        int k = new Random().nextInt(10);
-        int pos = new Random().nextInt(length);
-
-        StringBuilder question = new StringBuilder();
-        int correctAnswer = 0;
-
+    @Override
+    public void playGame() {
+        int length = new Random().nextInt(5, 10);
+        int startNumber = new Random().nextInt(1, 100);
+        int k = new Random().nextInt(1, 10);
+        int pos = new Random().nextInt(1, length);
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             if (i != pos) {
-                question.append(startNumber).append(" ");
+                sb.append(startNumber).append(" ");
                 startNumber += k;
             } else {
-                question.append(".. ");
-                correctAnswer = startNumber;
+                sb.append(".. ");
+                answer = "" + startNumber;
                 startNumber += k;
             }
         }
+        question = sb.toString();
+    }
 
-        System.out.println("Question: " + question);
-        System.out.print("Your answer: ");
-        String answer = console.next();
-        try {
-            if (Integer.parseInt(answer) != correctAnswer) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                return false;
-            } else {
-                System.out.println("Correct!");
-            }
-        } catch (NumberFormatException exception) {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            return false;
-        }
-        return true;
+    @Override
+    public String getQuestion() {
+        return question;
+    }
+
+    @Override
+    public String getAnswer() {
+        return answer;
     }
 }
