@@ -1,52 +1,47 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
 public class Engine {
+
     public static void runGame(int pick) {
+        Playable game = null;
         Scanner console = new Scanner(System.in);
         System.out.println("\nWelcome to the Brain Games!");
         Cli.greeting(console);
         switch (pick) {
             case 2:
-                System.out.println(Even.GAME_DESCRIPTION);
+                game = new Even();
                 break;
             case 3:
-                System.out.println(Calc.GAME_DESCRIPTION);
+                game = new Calc();
                 break;
             case 4:
-                System.out.println(GCD.GAME_DESCRIPTION);
+                game = new GCD();
                 break;
             case 5:
-                System.out.println(Progression.GAME_DESCRIPTION);
+                game = new Progression();
+                break;
+            case 6:
+                game = new Prime();
                 break;
             default:
                 return;
         }
-        boolean result = false;
+        System.out.println(game.getGameDescription());
         for (int i = 0; i < 3; i++) {
-            switch (pick) {
-                case 2:
-                    result = Even.game(console);
-                    break;
-                case 3:
-                    result = Calc.game(console);
-                    break;
-                case 4:
-                    result = GCD.game(console);
-                    break;
-                case 5:
-                    result = Progression.game(console);
-                    break;
-            }
-            if (!result) {
-                System.out.println("Let's try again, " + Cli.playerName);
+            game.playGame();
+            System.out.println("Question: " + game.getQuestion());
+            System.out.print("Your answer: ");
+            String answer = console.next();
+            if (!answer.equals(game.getAnswer())) {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + game.getAnswer() + "'.");
+                System.out.println("Let's try again, " + Cli.playerName + "!");
                 return;
+            } else {
+                System.out.println("Correct!");
             }
         }
         System.out.println("Congratulations, " + Cli.playerName + "!");
