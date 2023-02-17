@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -21,6 +22,9 @@ public class Engine {
             case 4:
                 System.out.println(GCD.GAME_DESCRIPTION);
                 break;
+            case 5:
+                System.out.println(Progression.GAME_DESCRIPTION);
+                break;
             default:
                 return;
         }
@@ -35,6 +39,9 @@ public class Engine {
                     break;
                 case 4:
                     result = GCD.game(console);
+                    break;
+                case 5:
+                    result = Progression.game(console);
                     break;
             }
             if (!result) {
