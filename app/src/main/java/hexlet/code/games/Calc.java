@@ -1,38 +1,40 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-public class Calc {
-    public static final String GAME_DESCRIPTION = "What is the result of the expression?";
+public class Calc implements Playable {
+    private final String gameDescription = "What is the result of the expression?";
+    private String question;
+    private String answer;
 
-    public static boolean game(Scanner console) {
-        int a = (int) (Math.random() * 100);
-        int b = (int) (Math.random() * 100);
+    @Override
+    public String getGameDescription() {
+        return gameDescription;
+    }
+
+    @Override
+    public void playGame() {
+        int a = new Random().nextInt(1, 100);
+        int b = new Random().nextInt(1, 100);
         char[] signs = {42, 43, 45};
         char sign = signs[new Random().nextInt(signs.length)];
-        int correctAnswer;
+        question = a + " " + sign + " " + b;
         if (sign == 42) {
-            correctAnswer = a * b;
+            answer = "" + (a * b);
         } else if (sign == 43) {
-            correctAnswer = a + b;
+            answer = "" + (a + b);
         } else {
-            correctAnswer = a - b;
+            answer = "" + (a - b);
         }
-        System.out.println("Question: " + a + " " + sign + " " + b);
-        System.out.print("Your answer: ");
-        String answer = console.next();
-        try {
-            if (Integer.parseInt(answer) != correctAnswer) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                return false;
-            } else {
-                System.out.println("Correct!");
-            }
-        } catch (NumberFormatException exception) {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            return false;
-        }
-        return true;
+    }
+
+    @Override
+    public String getQuestion() {
+        return question;
+    }
+
+    @Override
+    public String getAnswer() {
+        return answer;
     }
 }
