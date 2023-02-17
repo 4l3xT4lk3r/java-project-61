@@ -5,4 +5,4 @@
 **Calc:** https://asciinema.org/a/DaL35oJKsKlFbuNtZUic9HaCZ  
 **GCD:** https://asciinema.org/a/ugjuCECsa4DrTaAeXZoqxZ6hP  
 **Progression:** https://asciinema.org/a/drIJWREjnHZE7eUZueST4TWmy  
-*Prime:** https://asciinema.org/a/NOqC3tX9eqWd9IYDiJfY3QUCR
+**Prime:** https://asciinema.org/a/NOqC3tX9eqWd9IYDiJfY3QUCR
