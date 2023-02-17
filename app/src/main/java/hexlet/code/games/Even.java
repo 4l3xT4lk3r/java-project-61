@@ -1,27 +1,33 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class Even {
-    public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static boolean game(Scanner console) {
-        int number = (int) (Math.random() * 100);
-        String correctAnswer;
+public class Even implements Playable {
+    private final String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private String question;
+    private String answer;
+
+    public void playGame() {
+        int number = new Random().nextInt(1, 100);
+        this.question = "" + number;
         if (number % 2 == 0) {
-            correctAnswer = "yes";
+            this.answer = "yes";
         } else {
-            correctAnswer = "no";
+            this.answer = "no";
         }
-        System.out.println("Question: " + number);
-        System.out.print("Your answer: ");
-        String answer = console.next();
-        if (!answer.equals(correctAnswer)) {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            return false;
-        } else {
-            System.out.println("Correct!");
-        }
-        return true;
     }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public String getGameDescription() {
+        return gameDescription;
+    }
+
 }
