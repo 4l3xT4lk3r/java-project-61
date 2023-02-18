@@ -2,11 +2,13 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Prime implements Playable {
+public final class Prime implements Playable {
 
-    public final String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private final String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private String question;
     private String answer;
+
+    private final int maxNumber = 100;
 
     @Override
     public String getGameDescription() {
@@ -15,7 +17,7 @@ public class Prime implements Playable {
 
     @Override
     public void playGame() {
-        int number = new Random().nextInt(1, 100);
+        int number = new Random().nextInt(1, maxNumber);
         int count = 0;
         for (int i = 1; i <= number; i++) {
             if (number % i == 0) {

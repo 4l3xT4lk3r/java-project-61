@@ -3,13 +3,15 @@ package hexlet.code.games;
 import java.util.Random;
 
 
-public class Even implements Playable {
+public final class Even implements Playable {
     private final String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private String question;
     private String answer;
 
+    private final int maxNumber = 100;
+
     public void playGame() {
-        int number = new Random().nextInt(1, 100);
+        int number = new Random().nextInt(1, maxNumber);
         this.question = "" + number;
         if (number % 2 == 0) {
             this.answer = "yes";

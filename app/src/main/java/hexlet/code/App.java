@@ -18,15 +18,16 @@ public class App {
         int pick;
         try {
             pick = console.nextInt();
+            Engine.runGame(pick);
         } catch (InputMismatchException exception) {
             System.out.println("\nWrong pick!");
             return;
         }
-        if (pick >= 1 && pick <= 6) {
-            Engine.runGame(pick);
-        } else if (pick != 0) {
-            System.out.println("\nWrong pick!");
-        }
+//        if (pick >= 1 && pick <= 6) {
+//            Engine.runGame(pick);
+//        } else if (pick != 0) {
+//            System.out.println("\nWrong pick!");
+//        }
         console.close();
     }
 }
