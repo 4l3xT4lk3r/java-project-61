@@ -1,44 +1,37 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-public final class Calc implements Playable {
-    private final String gameDescription = "What is the result of the expression?";
-    private String question;
-    private String answer;
+public final class Calc {
+    private static final String GAME_DESCRIPTION = "What is the result of the expression?";
+    private static final char ASTERISK_SIGN = 42;
+    private static final char PLUS_SIGN = 43;
+    private static final char MINUS_SIGN = 45;
 
-    private final int maxNumber = 100;
-    private final int asteriskSign = 42;
-    private final int plusSign = 43;
-    private final int minusSign = 45;
-    @Override
-    public String getGameDescription() {
-        return gameDescription;
+    public static void playGame() {
+        String[] data = new String[App.MAX_ROUNDS];
+        for (int i = 0; i < App.MAX_ROUNDS; i++) {
+            data[i] = makeQuestion();
+        }
+        Engine.processGameData(GAME_DESCRIPTION, data);
     }
 
-    @Override
-    public void playGame() {
-        int a = new Random().nextInt(1, maxNumber);
-        int b = new Random().nextInt(1, maxNumber);
-        char[] signs = {asteriskSign, plusSign, minusSign};
-        char sign = signs[new Random().nextInt(signs.length)];
-        question = a + " " + sign + " " + b;
-        if (sign == asteriskSign) {
+    private static String makeQuestion() {
+        int a = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
+        int b = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
+        char[] signs = {ASTERISK_SIGN, PLUS_SIGN, MINUS_SIGN};
+        char sign = signs[Utils.getRandomNumber(signs.length)];
+        String question = a + " " + sign + " " + b;
+        String answer;
+        if (sign == ASTERISK_SIGN) {
             answer = "" + (a * b);
-        } else if (sign == plusSign) {
+        } else if (sign == PLUS_SIGN) {
             answer = "" + (a + b);
         } else {
             answer = "" + (a - b);
         }
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public String getAnswer() {
-        return answer;
+        return question + ":" + answer;
     }
 }

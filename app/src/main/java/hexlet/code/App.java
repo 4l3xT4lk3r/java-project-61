@@ -1,9 +1,23 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
+    public static final int MAX_ROUNDS = 3;
+
+    public static final int EVEN_GAME = 2;
+    public static final int CALC_GAME = 3;
+    public static final int GCD_GAME = 4;
+    public static final int PROGRESSION_GAME = 5;
+    public static final int PRIME_GAME = 6;
+
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
@@ -18,16 +32,34 @@ public class App {
         int pick;
         try {
             pick = console.nextInt();
-            Engine.runGame(pick);
+            switch (pick) {
+                case 0:
+                    break;
+                case 1:
+                    Cli.greeting();
+                    break;
+                case EVEN_GAME:
+                    Even.playGame();
+                    break;
+                case CALC_GAME:
+                    Calc.playGame();
+                    break;
+                case GCD_GAME:
+                    GCD.playGame();
+                    break;
+                case PROGRESSION_GAME:
+                    Progression.playGame();
+                    break;
+                case PRIME_GAME:
+                    Prime.playGame();
+                    break;
+                default:
+                    System.out.println("\nWrong pick!");
+                    break;
+            }
         } catch (InputMismatchException exception) {
             System.out.println("\nWrong pick!");
-            return;
         }
-//        if (pick >= 1 && pick <= 6) {
-//            Engine.runGame(pick);
-//        } else if (pick != 0) {
-//            System.out.println("\nWrong pick!");
-//        }
         console.close();
     }
 }

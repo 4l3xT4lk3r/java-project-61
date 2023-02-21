@@ -1,35 +1,29 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
+public final class Even {
+    private static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-public final class Even implements Playable {
-    private final String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private String question;
-    private String answer;
-
-    private final int maxNumber = 100;
-
-    public void playGame() {
-        int number = new Random().nextInt(1, maxNumber);
-        this.question = "" + number;
-        if (number % 2 == 0) {
-            this.answer = "yes";
-        } else {
-            this.answer = "no";
+    public static void playGame() {
+        String[] data = new String[App.MAX_ROUNDS];
+        for (int i = 0; i < App.MAX_ROUNDS; i++) {
+            data[i] = makeQuestion();
         }
+        Engine.processGameData(GAME_DESCRIPTION, data);
     }
 
-    public String getQuestion() {
-        return question;
+    private static String makeQuestion() {
+        int number = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
+        String question = "" + number;
+        String answer;
+        if (number % 2 == 0) {
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
+        return question + ":" + answer;
     }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public String getGameDescription() {
-        return gameDescription;
-    }
-
 }
