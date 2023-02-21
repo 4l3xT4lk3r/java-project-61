@@ -39,19 +39,19 @@ public class App {
                     Cli.greeting();
                     break;
                 case EVEN_GAME:
-                    Even.playGame();
+                    Even.playGame(MAX_ROUNDS);
                     break;
                 case CALC_GAME:
-                    Calc.playGame();
+                    Calc.playGame(MAX_ROUNDS);
                     break;
                 case GCD_GAME:
-                    GCD.playGame();
+                    GCD.playGame(MAX_ROUNDS);
                     break;
                 case PROGRESSION_GAME:
-                    Progression.playGame();
+                    Progression.playGame(MAX_ROUNDS);
                     break;
                 case PRIME_GAME:
-                    Prime.playGame();
+                    Prime.playGame(MAX_ROUNDS);
                     break;
                 default:
                     System.out.println("\nWrong pick!");

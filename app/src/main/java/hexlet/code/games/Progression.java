@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -10,23 +9,23 @@ public final class Progression {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_INCREASE_NUMBER = 10;
 
-    public static void playGame() {
-        String[] data = new String[App.MAX_ROUNDS];
-        for (int i = 0; i < App.MAX_ROUNDS; i++) {
-            data[i] = makeQuestion();
+    public static void playGame(int rounds) {
+        String[] data = new String[rounds];
+        for (int i = 0; i < rounds; i++) {
+            int length = Utils.getRandomNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int startNumber = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
+            int k = Utils.getRandomNumber(1, MAX_INCREASE_NUMBER);
+            int randomPos = Utils.getRandomNumber(1, length);
+            data[i] = getProgression(length, startNumber, k, randomPos);
         }
         Engine.processGameData(GAME_DESCRIPTION, data);
     }
 
-    private static String makeQuestion() {
-        int length = Utils.getRandomNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-        int startNumber = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
-        int k = Utils.getRandomNumber(1, MAX_INCREASE_NUMBER);
-        int pos = Utils.getRandomNumber(1, length);
+    private static String getProgression(int length, int startNumber, int k, int randomPos) {
         StringBuilder question = new StringBuilder();
         String answer = null;
         for (int i = 0; i < length; i++) {
-            if (i != pos) {
+            if (i != randomPos) {
                 question.append(startNumber).append(" ");
                 startNumber += k;
             } else {
