@@ -5,8 +5,8 @@ import hexlet.code.Engine;
 public abstract class Game {
     private final String gameDescription;
 
-    public Game(String gameDescription) {
-        this.gameDescription = gameDescription;
+    public Game(String description) {
+        this.gameDescription = description;
     }
 
     public final void playGame(int rounds) {
