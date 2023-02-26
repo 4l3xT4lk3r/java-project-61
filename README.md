@@ -20,12 +20,11 @@ Wrong answers terminate game and player loses.
 
 - &gt;= Java 17
 - &gt;= Gradle 7.4.2
-- 
 
 ## Setup
 
 - Download latest [build](https://github.com/4l3xT4lk3r/java-project-61/tags) and unpack it.
-- Open project folde and go to app directory
+- Open project folder and go to `app` directory
 - Run `make jar` or `./gradlew jar`. It makes jar file into app/build/lib/app-$version.jar
 
 ## Run application
