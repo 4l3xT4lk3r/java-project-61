@@ -27,6 +27,6 @@ Wrong answers terminate game and player loses.
 - Open project folder and go to `app` directory
 - Run `make jar` or `./gradlew jar`. It makes jar file into app/build/lib/app-$version.jar
 
-## Run application
+## Using application
 
-- java -jar app-$version.jar
+- Execute in app directory `make run-dist` or run `java -jar app-$version.jar`
