@@ -10,8 +10,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
-    public static final int MAX_ROUNDS = 3;
-
     public static final int EVEN_GAME = 2;
     public static final int CALC_GAME = 3;
     public static final int GCD_GAME = 4;
@@ -39,19 +37,19 @@ public class App {
                     Cli.greeting();
                     break;
                 case EVEN_GAME:
-                    new Even().playGame(MAX_ROUNDS);
+                    new Even().playGame();
                     break;
                 case CALC_GAME:
-                    new Calc().playGame(MAX_ROUNDS);
+                    new Calc().playGame();
                     break;
                 case GCD_GAME:
-                    new GCD().playGame(MAX_ROUNDS);
+                    new GCD().playGame();
                     break;
                 case PROGRESSION_GAME:
-                    new Progression().playGame(MAX_ROUNDS);
+                    new Progression().playGame();
                     break;
                 case PRIME_GAME:
-                    new Prime().playGame(MAX_ROUNDS);
+                    new Prime().playGame();
                     break;
                 default:
                     System.out.println("\nWrong pick!");

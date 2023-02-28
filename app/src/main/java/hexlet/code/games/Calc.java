@@ -18,6 +18,10 @@ public final class Calc extends Game {
         int b = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
         char[] signs = {ASTERISK_SIGN, PLUS_SIGN, MINUS_SIGN};
         char sign = signs[Utils.getRandomNumber(signs.length)];
+        return makeExpression(a, b, sign);
+    }
+
+    private String[] makeExpression(int a, int b, char sign) {
         String question = a + " " + sign + " " + b;
         String answer;
         if (sign == ASTERISK_SIGN) {

@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class Engine {
 
     public static void processGameData(String gameDescription, String[][] gameData) {
-        String playerName = Cli.greeting();
-        System.out.println(gameDescription);
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
         Scanner console = new Scanner(System.in);
+        String playerName = console.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+        System.out.println(gameDescription);
         for (int i = 0; i < gameData.length; i++) {
             String question = gameData[i][0];
             String correctAnswer = gameData[i][1];

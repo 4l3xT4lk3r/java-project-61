@@ -13,23 +13,22 @@ public final class Prime extends Game {
     String[] generateRoundData() {
         int number = Utils.getRandomNumber(1, Utils.MAX_NUMBER);
         String question = "" + number;
-        String answer = isPrime(number);
+        String answer;
+        if (isPrime(number)) {
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
         return new String[]{question, answer};
     }
 
-    private String isPrime(int number) {
+    private boolean isPrime(int number) {
         int count = 0;
-        String answer;
         for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
                 count++;
             }
         }
-        if (count <= 2) {
-            answer = "yes";
-        } else {
-            answer = "no";
-        }
-        return answer;
+        return count <= 2;
     }
 }
