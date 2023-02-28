@@ -13,8 +13,8 @@ public abstract class Game {
         this.maxRounds = DEFAULT_ROUND_COUNT;
     }
 
-    public final void setMaxRounds(int maxRounds) {
-        this.maxRounds = maxRounds;
+    public final void setMaxRounds(int rounds) {
+        this.maxRounds = rounds;
     }
 
     public final void playGame() {
